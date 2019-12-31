@@ -1,0 +1,376 @@
+html, body {
+  font-family: 'PingFang SC', sans-serif;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+* {
+  box-sizing: inherit;
+}
+@mixin bgImg($src) {
+  background: url('../images/' + $src) center / cover no-repeat;
+}
+.container {
+  margin: 0 auto;
+  width: 1200px;
+}
+.header {
+  background-color: #061032;
+  .container {
+    height: 110px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo {
+    width: 114px;
+    height: 78px;
+  }
+  .login-btn {
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
+  }
+}
+.page1 {
+  @include bgImg('page1/bg.png');
+  .container {
+    height: 936px;
+    position: relative;
+  }
+  .title {
+    position: absolute;
+    top: 170px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 862px;
+    height: 288px;
+    @include bgImg('page1/title.png');
+  }
+  .light {
+    position: absolute;
+    top: 170px + 288px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1300px;
+    height: 62px;
+    @include bgImg('page1/light.png');
+  }
+  .list {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 82px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .item {
+    position: relative;
+    width: 174px;
+    height: 148px;
+    @include bgImg('page1/border.png');
+    color: #fff;
+    .num,
+    .desc {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      font-weight: bold;
+      opacity:0.91;
+      background:linear-gradient(0deg,rgba(2,168,253,1) 0%, rgba(12,253,243,1) 100%);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      color: transparent;
+
+      white-space: nowrap;
+    }
+    .num {
+      top: 56px;
+      font-size: 32px;
+    }
+    .desc {
+      top: 100px;
+      font-size: 22px;
+    }
+  }
+}
+.page2 {
+  margin-top: 105px;
+  text-align: center;
+  .title {
+    font-size: 50px;
+    font-weight: bold;
+  }
+  .desc {
+    margin-top: 26px;
+    margin-bottom: 46px;
+    font-size: 22px;
+    color: #818181;
+  }
+  .list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .item {
+    position: relative;
+    height: 540px;
+    width: 228px;
+    padding-top: 299px;
+    font-size: 38px;
+    color: #fff;
+    &:after {
+      content: '';
+      position: absolute;
+      top: 202px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 68px;
+      height: 65px;
+    }
+    @for $i from 1 through 5 {
+      &:nth-child(#{$i})  {
+        @include bgImg('page2/list#{$i}.png');
+        &:after {
+          @include bgImg('page2/icon#{$i}.png');
+        }
+      }
+    }
+  }
+}
+h2.pTitle {
+  font-size: 54px;
+  font-weight: bold;
+  line-height: 1;
+  color: #fff
+}
+h3.pTitle {
+  font-size: 42px;
+  font-weight: bold;
+  color: #fff;
+  line-height: 1;
+}
+p.pDesc {
+  font-size: 22px;
+  color: #D6D7DC;
+}
+@for $i from 3 through 8 {
+  .page#{$i} .container {
+    position: relative;
+    height: 760px;
+  }
+}
+.page3 .container {
+  position: relative;
+  height: 760px;
+}
+.page3 {
+  margin-top: 112px;
+  @include bgImg('page3/bg.png');
+  .text-wrapper {
+    padding-top: 248px;
+    h2.pTitle {
+      margin-bottom: 28px;
+    }
+    p.pDesc {
+      margin-top: 72px;
+      width: 416px;
+      font-size: 20px;
+      line-height: 36px;
+    }
+  }
+  .img-wrapper {
+    position: absolute;
+    top: 138px;
+    right: 0;
+    width: 654px;
+    height: 484px;
+    @include bgImg('page3/bg1.png');
+    .xingyun,
+    .shadow1,
+    .shadow2 {
+      position: absolute;
+    }
+    .xingyun {
+      top: 185px;
+      left: 236px;
+      width: 158px;
+      height: 118px;
+      @include bgImg('page3/xy.png');
+    }
+    .shadow1 {
+      top: 250px;
+      left: 234px;
+      width: 160px;
+      height: 46px;
+      @include bgImg('page3/shadow1.png');
+    }
+    .shadow2 {
+      top: 247px;
+      left: 216px;
+      width: 196px;
+      height: 64px;
+      @include bgImg('page3/shadow2.png');
+    }
+  }
+}
+.page4 {
+  @include bgImg('page4/bg.png');
+  .text-wrapper {
+    position: absolute;
+    top: 230px;
+    right: 0;
+    width: 374px;
+    h2.pTitle {
+      text-align: right;
+      margin-bottom: 72px;
+    }
+  }
+  .img-wrapper {
+    position: absolute;
+    top: 117px;
+    left: 0;
+    width: 706px;
+    height: 527px;
+    @include bgImg('page4/img-bg.png');
+    &:after {
+      content: '';
+      position: absolute;
+      top: 157px;
+      left: 271px;
+      width: 227px;
+      height: 227px;
+      @include bgImg('page4/circle.png');
+    }
+  }
+}
+.page5 {
+  @include bgImg('page5/bg.png');
+  .text-wrapper {
+    position: absolute;
+    top: 266px;
+    left: 0;
+    width: 416px;
+    h2.pTitle {
+      margin-bottom: 72px;
+    }
+  }
+  .img-wrapper {
+    position: absolute;
+    top: 180px;
+    right: -178px;
+    width: 1062px;
+    height: 414px;
+    @include bgImg('page5/img-bg.png');
+    .circle {
+      position: absolute;
+      top: 191px;
+      left: 190px;
+      width: 694px;
+      height: 160px;
+      @include bgImg('page5/circle.png');
+    }
+    .logo {
+      position: absolute;
+      top: 197px;
+      left: 493px;
+      width: 100px;
+      height: 76px;
+      @include bgImg('page5/logo.png');
+    }
+  }
+}
+.page6 {
+  @include bgImg('page6/bg.png');
+  .text-wrapper {
+    position: absolute;
+    top: 263px;
+    right: 0;
+    width: 437px;
+    h2.pTitle {
+      text-align: right;
+      margin-bottom: 72px;
+    }
+  }
+  .img-wrapper {
+    position: absolute;
+    top: 90px;
+    left: 0;
+    width: 634px;
+    height: 582px;
+    @include bgImg('page6/img-bg.png');
+    .arrow {
+      position: absolute;
+      top: 71px;
+      left: 3px;
+      width: 629px;
+      height: 225px;
+      @include bgImg('page6/arrow.png');
+    }
+  }
+}
+.page7 {
+  @include bgImg('page7/bg.png');
+  .text-wrapper {
+    position: absolute;
+    top: 244px;
+    left: 0;
+    width: 437px;
+    h2.pTitle {
+      margin-bottom: 72px;
+    }
+  }
+  .bg2 {
+    position: absolute;
+    top: 276px;
+    right: 23px;
+    width: 628px;
+    height: 396px;
+    @include bgImg('page7/img-bg2.png');
+  }
+  .bg1 {
+    position: absolute;
+    top: 43px;
+    right: 42px;
+    width: 603px;
+    height: 410px;
+    @include bgImg('page7/img-bg1.png');
+  }
+  .circle {
+    position: absolute;
+    top: 408px;
+    right: 66px;
+    width: 550px;
+    height: 143px;
+    @include bgImg('page7/circle.png');
+  }
+}
+.page8 {
+  @include bgImg('page8/bg.png');
+  .text-wrapper {
+    position: absolute;
+    top: 210px;
+    right: 0;
+    width: 338px;
+    h2.pTitle {
+      text-align: right;
+      margin-bottom: 72px;
+    }
+  }
+  .title-bg {
+    position: absolute;
+    top: 140px;
+    left: 0;
+    width: 52px;
+    height: 482px;
+    @include bgImg('page8/title-bg.png');
+  }
+  .bg2 {
+    position: absolute;
+    top: 140px;
+    left: 56px;
+    width: 719px;
+    height: 482px;
+    @include bgImg('page8/img-bg.png');
+  }
+}
